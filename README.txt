@@ -1,0 +1,1 @@
+Repositorio relacionado a cadeira de DESENVOLVIMENTO DE APLICAÇÕES PARA INTERNET 2025A do curso tecnico de informatica da Univates 
