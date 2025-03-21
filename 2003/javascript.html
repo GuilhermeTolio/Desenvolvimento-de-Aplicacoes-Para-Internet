@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Code Pro', sans-serif;
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #586069;
+
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            width: 25%;
+            background-color: #24292f;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            color: black;
+        }
+
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        input[type="number"], input[type="text"] {
+            padding: 10px;
+            font-size: 24px;
+            margin: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function mostrarAlerta() {
+        window.alert('Quero um ponto a mais por estar no github!!!');
+    }
+
+    let contador = 0;
+
+    function atualizarContador() {
+        document.getElementById('contador').textContent = contador;
+    }
+
+    function aumentar() {
+        contador++;
+        atualizarContador();
+    }
+
+    function diminuir() {
+        contador--;
+        atualizarContador();
+    }
+
+    function somar() {
+        let num1 = parseFloat(document.getElementById('num1').value);
+        let num2 = parseFloat(document.getElementById('num2').value);
+        let resultado = num1 + num2;
+        document.getElementById('resultadoCalculadora').textContent = resultado;
+    }
+
+    function subtrair() {
+        let num1 = parseFloat(document.getElementById('num1').value);
+        let num2 = parseFloat(document.getElementById('num2').value);
+        let resultado = num1 - num2;
+        document.getElementById('resultadoCalculadora').textContent = resultado;
+    }
+
+    function multiplicar() {
+        let num1 = parseFloat(document.getElementById('num1').value);
+        let num2 = parseFloat(document.getElementById('num2').value);
+        let resultado = num1 * num2;
+        document.getElementById('resultadoCalculadora').textContent = resultado;
+    }
+
+    function dividir() {
+        let num1 = parseFloat(document.getElementById('num1').value);
+        let num2 = parseFloat(document.getElementById('num2').value);
+        if (num2 !== 0) {
+            let resultado = num1 / num2;
+            document.getElementById('resultadoCalculadora').textContent = resultado;
+        } else {
+            alert('Nao da pra dividir pro 0');
+            document.getElementById('resultadoCalculadora').textContent = 'Erro';
+        }
+    }
+
+    function adicionarItem() {
+        let itemInput = document.getElementById('itemInput').value;
+        if (itemInput.trim() !== "") {
+            let lista = document.getElementById('listaItens');
+            let li = document.createElement('li');
+            li.textContent = itemInput;
+            lista.appendChild(li);
+            document.getElementById('itemInput').value = "";
+        } else {
+            alert("se não digitar não funciona");
+        }
+    }
+</script>
+<div class="flex-container">
+    <div class="container">
+        <h1><strong>um botão que ao clicar, mostra uma mensagem</strong></h1>
+        <button onclick="mostrarAlerta()">Clique para ver uma mensagem</button>
+    </div>
+
+    <div class="container">
+
+        <h1><strong>um simples contador, com um botão para aumentar um número e um para reduzir</strong> </h1>
+        <p id="contador" class="result">0</p>
+        <button onclick="aumentar()">Aumentar</button>
+        <button onclick="diminuir()">Diminuir</button>
+    </div>
+
+    <div class="container">
+        <h1><strong>uma calculadora simples</strong> </h1>
+        <input type="number" id="num1" placeholder="Digite um número">
+        <input type="number" id="num2" placeholder="Digite outro número">
+        <button onclick="somar()">Somar</button>
+        <button onclick="subtrair()">Subtrair</button>
+        <button onclick="multiplicar()">Multiplicar</button>
+        <button onclick="dividir()">Dividir</button>
+        <p>Resultado: <span id="resultadoCalculadora" class="result">0</span></p>
+    </div>
+
+    <div class="container">
+        <h1><strong>Uma tela para uma lista de itens com: campo de input para digitar uma informação e botão para adicionar um item a uma lista</strong> </h1>
+        <input type="text" id="itemInput" placeholder="Digite um item">
+        <button onclick="adicionarItem()">Adicionar Item</button>
+        <ul id="listaItens"></ul>
+    </div>
+</div>
+
+
+</body>
+</html>
